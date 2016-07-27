@@ -15,6 +15,7 @@ angular结合React（如果不想看如何实现的直接看［使用说明］�
 ![img](http://chuantu.biz/t5/23/1469625991x3738746535.jpg)
 
 *  如何将Ng模版分发到React组件中?
+分发到底什么意思？千万不要觉得很高大上，其实就是将指定的ng模板插入到React组件渲染完成后的对应的真实节点DOM上。
 提供另外一个Ng指令(rc-slot),在rc-comp中使用rc-slot指令将特定的Ng模版分发到React组件中.rc-slot提供type属性,type必须和React提供的装载分发内容的容器名称相同.有type属性之后将rc-slot中的Ng模版,插入到React对应的容器.
 ![img](http://chuantu.biz/t5/23/1469629289x3738746595.png)
 
