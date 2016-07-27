@@ -2,9 +2,9 @@
 angular结合React（如果不想看如何实现的直接看［使用说明］［ngReact APi］就可以了）
 ###  Angular结合React组件
 >  前言: 如何结合Angular和React?这个问题困扰了我很长时间.一开始的想法是每一个React组件对应一个Ng的指令,我们直接把React的组件直接渲染到Ng指令的DOM上.示意图如下:
-![img](http://chuantu.biz/t5/22/1469528842x3738746535.jpg)
+![img](http://chuantu.biz/t5/23/1469624737x3738746535.jpg)
 这样做的工作量无疑很大,每一个React的组件都要对应到一个Ng指令,后期维护成本同样很大.这里面最大问题是Ng指令太多了,要是能够用一个指令,这样就可以解决上面的问题.示意图如下:
-![img](http://chuantu.biz/t5/22/1469533548x3738746535.jpg)
+![img](http://chuantu.biz/t5/23/1469624946x3738746535.jpg)
 为什么要使用Ng指令？不用其他的Ng特性呢。
 首先我们想把React当作View层，Angular作为数据流管理，想尽可能把让React组件只在Ng的模版中使用，那么这个时候考虑Ng指令是最好的。用指令就等于我们让Angular和React直接就通过真实的DOM链接起来。这个里面其实也可以提供Ng的Service出来，如果需要的话，后期可以暴露出相对应Ng的Service。
 
@@ -12,11 +12,11 @@ angular结合React（如果不想看如何实现的直接看［使用说明］�
 ####  技术实现
 *  如何让Ng指令去结合React组件?
 在Ng指令(rc-comp)上提供一个属性(rcname),只要提供了rcname,Ng就会去找到对应的React组件,然后把$scope.props传递给该组件并渲染到Ng指令的真实节点上.示意图如下:
-![img](http://chuantu.biz/t5/22/1469534841x3738746535.jpg)
+![img](http://chuantu.biz/t5/23/1469625991x3738746535.jpg)
 
 *  如何将Ng模版分发到React组件中?
 提供另外一个Ng指令(rc-slot),在rc-comp中使用rc-slot指令将特定的Ng模版分发到React组件中.rc-slot提供type属性,type必须和React提供的装载分发内容的容器名称相同.有type属性之后将rc-slot中的Ng模版,插入到React对应的容器.
-![img](http://chuantu.biz/t5/22/1469535755x3738746535.jpg)
+![img](http://chuantu.biz/t5/23/1469626358x3738746535.jpg)
 
 ####  使用说明
 *   首先引入文件
