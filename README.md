@@ -33,7 +33,7 @@ var app = angular.module('app', ['ngReact']);
 // 参数解读:
 // 1. rcname对应React具体的组件名称
 // 2.props属性是传入对应React组件的属性 , 比如buttonProps在controller中定义为: {type: 'primary', handleClick: function(){...}};那么对应传入组件的属性是type 和handleClick
-<ng-comp rcname="Button" props="buttonProps"></ng-comp>
+<rc-comp rcname="Button" props="buttonProps"></rc-comp>
 ```
 如果需要分发angular的模板到react中:例子如下:
 ```html
@@ -41,28 +41,28 @@ var app = angular.module('app', ['ngReact']);
 // 参数解读:
 // 1. rcname对应React具体的组件名称( 同上)
 // 2. props属性是传入对应React组件的属性 (同上)
-// 3. uc-slot解读:
-// uc-slot上需要提供一个type属性,这个属性必须和React组件提供的相对应容器的名称一致(这里容器名称会在React组件的API中说明,当你使用具体React组件的时候,一定要仔细查看对应的API)
+// 3. rc-slot解读:
+// rc-slot上需要提供一个type属性,这个属性必须和React组件提供的相对应容器的名称一致(这里容器名称会在React组件的API中说明,当你使用具体React组件的时候,一定要仔细查看对应的API)
 // 当你提供了具体的type属性之后,angular的模版就可以分发到组件对应的容器中.
-<ng-comp rcname="Modal" props="modalProps">
-    <uc-slot type="title">
+<rc-comp rcname="Modal" props="modalProps">
+    <rc-slot type="title">
         <h1>这里是modal的标题</h1>
-    </uc-slot>
-    <uc-slot type="content">
+    </rc-slot>
+    <rc-slot type="content">
         <div>这里是modal的内容</div>
-    </uc-slot>
-</ng-comp>
+    </rc-slot>
+</rc-comp>
 ```
 
 ####   ngReact API
-*   ng-comp(指令),功能：获取对应的React组件，然后传递一些props给组件，最后渲染改组件到指令的真实DOM上。
+*   rc-comp(指令),功能：获取对应的React组件，然后传递一些props给组件，最后渲染改组件到指令的真实DOM上。
 
 | 属性名        | 属性值类型    | 说明                           |
 | ------------- |:-------------:| :-----------------------------:|
 | rcname        | string        | rcname 对应具体React组件的名称 |
 | props         | object        | props，通过scope获取，props上的键值最后全部传递给对应的React组件［作为React组件的属性］|
 
-*   ng-slot(指令),功能：将Ng的模版分发到React组件对应的容器中（听起来抽象，写代码看代码之后就很好懂...）。
+*   rc-slot(指令),功能：将Ng的模版分发到React组件对应的容器中（听起来抽象，写代码看代码之后就很好懂...）。
 
 | 属性名        | 属性值类型    | 说明                           |
 | ------------- |:-------------:| :-----------------------------:|
