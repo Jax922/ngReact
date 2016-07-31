@@ -79,7 +79,8 @@ this.state = {
 *  暴露DOM事件接口时，接口名称必须和React的事件名称一致，eg.onClick,onChange,onFocus onBlur,onChange onInput onSubmit,onClick onDoubleClick onDrag onDragEnd onDragEnter onDragExit onDragLeave
 onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
 onMouseMove onMouseOut onMouseOver onMouseUp
-####  style规范
+
+####   style规范
 使用less。
 *   如果需要写mixin，必须在mixin.less中书写
 *   在组件的style文件夹下必须存在index.js,这个js文件是require所有的less文件
