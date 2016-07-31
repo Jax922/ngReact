@@ -17,9 +17,9 @@ class Button extends Component {
 ```
 *  组件render中的return部分必须用()包裹一层，如上例。
 *  组件的属性props必须用PropTypes去制定。[PropTypes说明](https://facebook.github.io/react/docs/component-specs.html#proptypes)
-*  模块化统一使用es6 Module。不可以之间import React from 'react',如果使用React.xxx，必须要写import {xxx,yyy,zzz} from 'react',比如要使用React.Component和React.PropTypes,必须import {Component,PropTypes} from 'react'
+*  模块化统一使用es6 Module。不可以直接import React from 'react',如果使用React.xxx，必须要写import {xxx,yyy,zzz} from 'react',比如要使用React.Component和React.PropTypes,必须import {Component,PropTypes} from 'react'
 ```js
-// 这个是React@v15.2.0版本所有暴露的方法，要使用什么方法之间import {xxx} from 'react' 即可。
+// 这个是React@v15.2.0版本所有暴露的方法，要使用什么方法直接import {xxx} from 'react' 即可。
 var React = {
 
   // Modern
@@ -95,9 +95,9 @@ onMouseMove onMouseOut onMouseOver onMouseUp
 ```
 *   组件可能需要添加一些状态的class，这时候命名规范：{命名空间}-{组件名}-{状态描述},eg.rc-modal-open,rc-modal-close,不可以随便命名为rc-modal-red
 *   全部（最好）都是class，保证可以通过className叠加的方式改变样式
-*   在js中使用class的时候，使用classname辅助我们开发，不要手动书写class，比如：
+*   在js中使用class的时候，使用classname辅助我们开发，不要手动书写class，比如：这样写不推荐
 ```html
-<div className="class-1 class-2 class-3"></div>
+<div className="class-1 class-2 class-3"></div> 
 ```
 [classname介绍](https://github.com/JedWatson/classnames)
 
